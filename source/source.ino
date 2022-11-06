@@ -135,8 +135,12 @@ String SelectSignal(String key){
     {result="light_off";}
   else
     {
-      result="\""+key+"\" is invalid word";
+      result="\""+key+"\" sended";
       sendSignal=key;
+      if(!SignalCheack(key)){
+        sendFlug=false;
+        result="信号のフォーマットが異なります";
+      }
     }
   return result;
 }
@@ -150,4 +154,29 @@ void IRrecProc(){
       Serial.println(recSignal);  
       IrReceiver.resume(); // Enable receiving of the next value
   }
+}
+//+===========================================
+//信号が正しいフォーマットであるかの確認
+bool SignalCheack(String str){
+  int count=0;
+  char c;
+  if((str.length()-4)%5!=0){
+    return false;
+  }
+  for(int i=0;i<str.length();i++){
+    c=str[i];
+    if(count==4){
+      count=0;
+      if(c!=' '){                          //4文字刻みのスペースを確認
+        return false;
+      }
+    }
+      else{
+        if(c<'0'||'F'<c||('9'<c&&c<'A')){   //16進数文字か確認
+          return false;
+        }
+    count++;
+      }
+  }
+  return true;
 }
