@@ -263,22 +263,6 @@ grid 2.5 mm, outline 2.4 x 4.4 mm</description>
 <wire x1="3.1" y1="1.8" x2="3.1" y2="-1.8" width="0.1524" layer="21"/>
 <wire x1="1.27" y1="1.8" x2="-1.27" y2="1.8" width="0.1524" layer="21" curve="180"/>
 </package>
-<package name="SWITCH_P-15703">
-<pad name="P$1" x="0" y="0" drill="0.7" diameter="1.6764"/>
-<pad name="P$2" x="-2" y="0" drill="0.7" diameter="1.6764"/>
-<pad name="P$3" x="2" y="0" drill="0.7" diameter="1.6764"/>
-<pad name="P$4" x="-4.2" y="0" drill="1.2" diameter="2"/>
-<pad name="P$5" x="4.2" y="0" drill="1.2" diameter="2"/>
-</package>
-<package name="SWITCH_SLIDE">
-<pad name="P$1" x="0" y="0" drill="1" shape="long" rot="R90"/>
-<pad name="P$2" x="-2.54" y="0" drill="1" shape="long" rot="R90"/>
-<pad name="P$3" x="2.54" y="0" drill="1" shape="long" rot="R90"/>
-<wire x1="-4.3" y1="1.8" x2="4.3" y2="1.8" width="0.1524" layer="21"/>
-<wire x1="-4.3" y1="-1.8" x2="4.3" y2="-1.8" width="0.1524" layer="21"/>
-<wire x1="-4.3" y1="1.8" x2="-4.3" y2="-1.8" width="0.1524" layer="21"/>
-<wire x1="4.3" y1="1.8" x2="4.3" y2="-1.8" width="0.1524" layer="21"/>
-</package>
 <package name="NSSW008BT">
 <wire x1="-1.4" y1="0.6" x2="1.4" y2="0.6" width="0.127" layer="21"/>
 <wire x1="-1.4" y1="0.6" x2="-1.4" y2="-0.6" width="0.127" layer="21"/>
@@ -335,17 +319,6 @@ grid 2.5 mm, outline 2.4 x 4.4 mm</description>
 <wire x1="1.27" y1="-2.54" x2="1.27" y2="2.54" width="0.1524" layer="94"/>
 <wire x1="1.27" y1="2.54" x2="-1.27" y2="2.54" width="0.1524" layer="94"/>
 </symbol>
-<symbol name="SWITCH_P-15703">
-<wire x1="0" y1="2.54" x2="0" y2="1.27" width="0.254" layer="94"/>
-<wire x1="0" y1="-1.27" x2="0" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="-1.27" y1="1.27" x2="1.27" y2="0" width="0.254" layer="94"/>
-<circle x="0" y="1.016" radius="0.254" width="0.254" layer="94"/>
-<circle x="0" y="-1.016" radius="0.254" width="0.254" layer="94"/>
-<pin name="OUT1" x="0" y="2.54" visible="off" length="point"/>
-<pin name="OUT2" x="0" y="-2.54" visible="off" length="point"/>
-<pin name="IN" x="2.54" y="0" visible="off" length="point" rot="R180"/>
-<wire x1="2.54" y1="0" x2="1.27" y2="0" width="0.254" layer="94"/>
-</symbol>
 <symbol name="LED">
 <pin name="ANODE" x="-5.08" y="0" visible="off" length="point"/>
 <wire x1="-2.54" y1="1.27" x2="-2.54" y2="-1.27" width="0.254" layer="94"/>
@@ -393,33 +366,6 @@ grid 2.5 mm, outline 2.4 x 4.4 mm</description>
 <connect gate="G$1" pin="GND" pad="GND"/>
 <connect gate="G$1" pin="OUTPUT" pad="OUTPUT"/>
 <connect gate="G$1" pin="VCC" pad="VCC"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="SWITCH">
-<gates>
-<gate name="G$1" symbol="SWITCH_P-15703" x="0" y="0"/>
-</gates>
-<devices>
-<device name="SWITCH_P-15703" package="SWITCH_P-15703">
-<connects>
-<connect gate="G$1" pin="IN" pad="P$1"/>
-<connect gate="G$1" pin="OUT1" pad="P$2"/>
-<connect gate="G$1" pin="OUT2" pad="P$3"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-<device name="SWTICH_SLIDE" package="SWITCH_SLIDE">
-<connects>
-<connect gate="G$1" pin="IN" pad="P$1"/>
-<connect gate="G$1" pin="OUT1" pad="P$2"/>
-<connect gate="G$1" pin="OUT2" pad="P$3"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -615,11 +561,7 @@ grid 2.5 mm, outline 2.4 x 4.4 mm</description>
 <part name="U$2" library="Custom_Parts" deviceset="OSRB38C9AA" device=""/>
 <part name="P+3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="U$4" library="Custom_Parts" deviceset="SWITCH" device="SWTICH_SLIDE"/>
-<part name="P+4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="+5V" device=""/>
-<part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="R3" library="my_rcl" deviceset="R-EU_" device="0204/5"/>
-<part name="R4" library="my_rcl" deviceset="R-EU_" device="0204/5"/>
 <part name="R5" library="my_rcl" deviceset="R-EU_" device="0204/5"/>
 <part name="U$5" library="Custom_Parts" deviceset="LED" device="OSI5FU3A11C"/>
 <part name="U$6" library="Custom_Parts" deviceset="LED" device="OSI5FU3A11C"/>
@@ -654,20 +596,9 @@ grid 2.5 mm, outline 2.4 x 4.4 mm</description>
 <instance part="GND1" gate="1" x="-7.62" y="12.7" smashed="yes">
 <attribute name="VALUE" x="-10.16" y="10.16" size="1.778" layer="96"/>
 </instance>
-<instance part="U$4" gate="G$1" x="-27.94" y="38.1" smashed="yes"/>
-<instance part="P+4" gate="1" x="-27.94" y="45.72" smashed="yes">
-<attribute name="VALUE" x="-30.48" y="45.72" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="GND5" gate="1" x="-25.4" y="15.24" smashed="yes">
-<attribute name="VALUE" x="-27.94" y="12.7" size="1.778" layer="96"/>
-</instance>
 <instance part="R3" gate="G$1" x="-43.18" y="25.4" smashed="yes" rot="R90">
 <attribute name="NAME" x="-44.6786" y="21.59" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="-39.878" y="21.59" size="1.778" layer="96" rot="R90"/>
-</instance>
-<instance part="R4" gate="G$1" x="-25.4" y="22.86" smashed="yes" rot="R90">
-<attribute name="NAME" x="-26.8986" y="19.05" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="-22.098" y="19.05" size="1.778" layer="96" rot="R90"/>
 </instance>
 <instance part="R5" gate="G$1" x="-2.54" y="45.72" smashed="yes" rot="R180">
 <attribute name="NAME" x="1.27" y="44.2214" size="1.778" layer="95" rot="R180"/>
@@ -711,10 +642,6 @@ grid 2.5 mm, outline 2.4 x 4.4 mm</description>
 <wire x1="-43.18" y1="17.78" x2="-43.18" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="R3" gate="G$1" pin="1"/>
 </segment>
-<segment>
-<pinref part="GND5" gate="1" pin="GND"/>
-<pinref part="R4" gate="G$1" pin="1"/>
-</segment>
 </net>
 <net name="N$3" class="0">
 <segment>
@@ -736,11 +663,6 @@ grid 2.5 mm, outline 2.4 x 4.4 mm</description>
 <wire x1="-43.18" y1="63.5" x2="-43.18" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U$4" gate="G$1" pin="OUT1"/>
-<pinref part="P+4" gate="1" pin="+5V"/>
-<wire x1="-27.94" y1="40.64" x2="-27.94" y2="43.18" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="P+3" gate="1" pin="+5V"/>
 <pinref part="U$2" gate="G$1" pin="VCC"/>
 <wire x1="-17.78" y1="33.02" x2="-17.78" y2="25.4" width="0.1524" layer="91"/>
@@ -756,16 +678,6 @@ grid 2.5 mm, outline 2.4 x 4.4 mm</description>
 <wire x1="-10.16" y1="50.8" x2="-10.16" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="-10.16" y1="45.72" x2="-7.62" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="2"/>
-</segment>
-</net>
-<net name="N$7" class="0">
-<segment>
-<pinref part="U$4" gate="G$1" pin="IN"/>
-<junction x="-25.4" y="38.1"/>
-<pinref part="U$3" gate="G$1" pin="D5"/>
-<wire x1="5.08" y1="38.1" x2="-25.4" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="-25.4" y1="38.1" x2="-25.4" y2="27.94" width="0.1524" layer="91"/>
-<pinref part="R4" gate="G$1" pin="2"/>
 </segment>
 </net>
 <net name="N$4" class="0">
