@@ -29,6 +29,7 @@ void IRrecProc();
 String recSignal="No signal";
 String sendSignal="";
 char sendFlug=false;
+char sendLoop=1;
 
 //webサーバー初期化
 WebServer server(80);
@@ -67,8 +68,10 @@ void loop() {
     IRrecProc();          //信号受信処理
     if(sendFlug==true){   //信号送信処理　フラグが立った場合
       sendFlug=false;
-      IrSender.sendPronto(sendSignal.c_str());
-      delay(2000);  
+      while(sendLoop--){
+        IrSender.sendPronto(sendSignal.c_str());
+        delay(3000);
+      }
     }
     server.handleClient();
 }
@@ -112,11 +115,20 @@ void Index(void){
 String SelectSignal(String key){
   sendFlug=true;
   String result;
-  result="入力信号送信";
-  sendSignal=key;
-  if(!SignalCheack(key)){
-    sendFlug=false;
-    result="信号のフォーマットが異なります";
+  if(key=="light_on"){
+    result="ライトオン";sendSignal=SIGNAL_LIGHT;sendLoop=1;
+  }
+  else if(key=="light_off"){
+    result="ライトオフ";sendSignal=SIGNAL_LIGHT;sendLoop=2;
+  }
+  else{
+    sendLoop=1;
+    result="入力信号送信";
+    sendSignal=key;
+    if(!SignalCheack(key)){
+      sendFlug=false;
+      result="信号のフォーマットが異なります";
+    }
   }
   return result;
 }
