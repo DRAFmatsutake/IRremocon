@@ -13,7 +13,7 @@
 //赤外線センサ ライブラリ設定
 #define IR_SEND_PIN     4   //D4
 #define IR_RECEIVE_PIN 21   //D21
-#define RAW_BUFFER_LENGTH 400
+#define RAW_BUFFER_LENGTH 800
 #define RECORD_GAP_MICROS 12000
 //#define RAW_BUFFER_LENGTH  n
 #define DECODE_DISTANCE     // universal decoder for pulse width or pulse distance protocols
